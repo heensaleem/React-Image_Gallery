@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import GalleryList from '../GalleryList/GalleryList';
+
+
 
 class App extends Component {
   state = {
@@ -25,6 +28,19 @@ class App extends Component {
       console.log(err);
     })
   }
+
+  clickedLikeButton = (id) => {
+    console.log('cliked on like button', id);
+    axios({
+      method: 'PUT',
+      url:'/gallery/like/{(id)}'
+    }).then((response) => {
+     console.log(response.data);
+     this.getImages();
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -34,7 +50,8 @@ class App extends Component {
         <br/>
         <pre>{JSON.stringify(this.state.images)}</pre>
         <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <img src="images/goat_small.jpg" alt=""/>
+        <GalleryList imageList = {this.state.images} buttonLikes={this.clickedLikeButton}/>
       </div>
     );
   }
