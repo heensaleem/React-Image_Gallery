@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgb(170, 83, 83);
   height: 70px;
   padding: 20px;
   color: white;
@@ -22,11 +22,6 @@
   to { transform: rotate(360deg); }
 }
 
-img{
-  height: 200px;
-  width: 200px;
-}
 
-ol {
-  display: inline-block;
-}
+
+

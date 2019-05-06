@@ -1,32 +1,45 @@
 import React from 'react';
+import './GalleryListItem.css';
 
 
 class GalleryListItem extends React.Component {
     state = {
-      imageClicked: false  
+      isClicked: false  
     }
     handleClick = () => {
         this.setState({
-            imageClicked: !this.state.imageClicked
+            isClicked: !this.state.isClicked
         })
+    }
+
+    clickLike = (likeId) => {
+        this.props.clickLike(likeId)
     }
     render(){
         console.log(this.state);
-        let imageToChange;
-        if(this.state.imageClicked){
-            imageToChange = 
-            <div>
-                <p onClick={this.handleClick}>{this.props.image.description}</p>
-                <p>{this.props.image.likes}</p>
-                <p> <button onClick={() => this.props.likes(this.props.image.id)}> Like </button></p>
-            </div>
+        let imageSwitch;
+
+        if(this.state.isClicked) {
+            imageSwitch = (
+                <p onClick={this.handleClick} className="textLayout">{this.props.image.description}</p>
+            )
         }else {
-            imageToChange =
-            <div>
-             <ol><img onClick={this.handleClick} src={this.props.image.path} alt="" /></ol> 
-            </div>
+            imageSwitch = 
+            <img onClick={this.handleClick} src={this.props.image.path} alt='' />
+            
         }
-        return imageToChange;
+
+
+        return(
+            
+            <div className="imageDisplay">
+            {imageSwitch}
+            <br />
+            <button  className="likeButton" onClick={() => this.clickLike(this.props.image.id)}>Like</button> 
+            <p>Likes: {this.props.image.likes}</p>
+            
+            </div>
+        )
     }
 }
 

@@ -1,0 +1,31 @@
+.imageDisplay {
+    display: inline-block;
+    flex-wrap: wrap;
+}
+
+.textLayout {
+    width:189px;
+    height:175px;
+    border-style:solid;
+    border-color:#336699;
+    word-wrap: break-word;
+    margin: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.8;
+    background-color: rgb(126, 67, 67);
+    font-family: fantasy;
+    font-weight: bold;
+}
+
+img {
+  width: 195px;
+  height: 195px;
+  margin: 20px;
+}
+
+.likeButton:hover {
+    border-radius: 4px;
+    background: white;
+    background-color: rgb(27, 52, 63);
+}
