@@ -60,3 +60,4 @@ For each `feature` of your application, make a branch, work on the branch, and t
 - Implement [uppy](https://uppy.io/) for image upload 
 
 > NOTE: The above stretch goals are intended to be completed in order.
+
